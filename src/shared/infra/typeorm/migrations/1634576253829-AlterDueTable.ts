@@ -33,8 +33,7 @@ export class AlterDueTable1634576253829 implements MigrationInterface {
       }),
       new TableColumn({
         name: 'tipoMoeda',
-        type: 'varchar',
-        length: '3',
+        type: 'int',
       }),
       new TableColumn({
         name: 'valorMoedaEstrangeira',

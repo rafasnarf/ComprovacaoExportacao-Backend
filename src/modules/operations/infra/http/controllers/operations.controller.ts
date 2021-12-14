@@ -1,6 +1,6 @@
 import { Controller, Get, Query, Res } from '@nestjs/common';
 import { Response } from 'express';
-import { FindByDateService } from 'src/modules/operations/services/FindByDate.service';
+import { FindByDateService } from '../../../services/FindByDate.service';
 import { FindByCenopService } from '../../../services/FindByCenop.service';
 import { FindByNrOperService } from '../../../services/FindByNrOper.service';
 import { FindByMciService } from '../../../services/FindByMci.service';

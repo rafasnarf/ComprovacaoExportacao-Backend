@@ -32,8 +32,8 @@ export default class DUEs {
   @Column()
   dataDue: Date;
 
-  @Column({ type: 'varchar', length: 3 })
-  tipoMoeda: string;
+  @Column({ type: 'int', width: 3 })
+  tipoMoeda: number;
 
   @Column({ type: 'double', precision: 20, scale: 2 })
   valorMoedaEstrangeira: number;

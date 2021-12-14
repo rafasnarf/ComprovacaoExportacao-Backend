@@ -14,9 +14,10 @@ import { DueController } from './infra/http/controllers/due.controller';
 
 import DUEs from './infra/typeorm/entities/DUEs';
 import Operations from '../operations/infra/typeorm/entities/Operations';
+import { Currency } from '../currency/infra/typeorm/entities/Currency';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([DUEs, Operations])],
+  imports: [TypeOrmModule.forFeature([DUEs, Operations, Currency])],
 
   providers: [
     SaveDuesService,

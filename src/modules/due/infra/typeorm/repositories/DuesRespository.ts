@@ -22,6 +22,8 @@ export class DuesRepository implements IDuesRepository {
       cnpjOper,
       valorTotalDue,
       dataDue,
+      tipoMoeda,
+      valorMoedaEstrangeira,
     } = data;
     const today = new Date();
     today.setTime(today.getTime() - today.getTimezoneOffset());
@@ -36,6 +38,8 @@ export class DuesRepository implements IDuesRepository {
         valorDue,
         usoTotal,
         dataDue,
+        tipoMoeda,
+        valorMoedaEstrangeira,
         radicalCNPJ: Number(cnpjOper.toString().slice(0, -6)),
         createdAt: today,
         updatedAt: today,
@@ -50,6 +54,8 @@ export class DuesRepository implements IDuesRepository {
         usoTotal,
         valorTotalDue,
         dataDue,
+        valorMoedaEstrangeira,
+        tipoMoeda,
         radicalCNPJ: Number(cnpjOper.toString().slice(0, -6)),
         createdAt: today,
         updatedAt: today,

@@ -24,16 +24,11 @@ export class SaveDuesService {
       usoTotal,
       valorTotalDue,
       dataDue,
+      valorMoedaEstrangeira,
+      tipoMoeda,
     } = data;
 
-    if (
-      !nrDue ||
-      !nrOperDue ||
-      !valorDue ||
-      !chaveDue ||
-      !cnpjOper ||
-      !dataDue
-    ) {
+    if (!nrDue || !chaveDue || !nrOperDue || !cnpjOper || !valorDue) {
       return new AppError('Necessário informar os dados corretos.');
     }
 
@@ -125,6 +120,8 @@ export class SaveDuesService {
       cnpjOper,
       valorTotalDue,
       dataDue,
+      tipoMoeda,
+      valorMoedaEstrangeira,
     } = data;
     let due: DUEs;
     if (usoTotal) {
@@ -137,6 +134,8 @@ export class SaveDuesService {
         usoTotal,
         cnpjOper,
         dataDue,
+        tipoMoeda,
+        valorMoedaEstrangeira,
       });
     } else {
       due = await this.duesRepository.saveDue({
@@ -149,6 +148,8 @@ export class SaveDuesService {
         cnpjOper,
         dataDue,
         valorTotalDue,
+        tipoMoeda,
+        valorMoedaEstrangeira,
       });
     }
 

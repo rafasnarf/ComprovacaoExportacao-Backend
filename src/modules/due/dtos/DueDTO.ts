@@ -7,7 +7,7 @@ export default interface DueDTO {
   cnpjOper?: number;
   usoTotal?: boolean;
   dataDue?: Date;
-  tipoMoeda?: string;
+  tipoMoeda?: number;
   valorMoedaEstrangeira?: number;
   valorTotalDue?: number;
   createdAt?: Date;

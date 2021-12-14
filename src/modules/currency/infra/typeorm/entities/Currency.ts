@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
-import { Entity, Column, Index, In } from 'typeorm';
+import { Entity, Column, Index, In, PrimaryColumn } from 'typeorm';
 
 @Entity('tb_ctc_moe_etg')
 export class Currency {
   @Index()
-  @Column()
+  @PrimaryColumn()
   dt_ctc: Date;
 
   @Index()

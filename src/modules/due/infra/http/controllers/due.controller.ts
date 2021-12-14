@@ -22,18 +22,22 @@ import { DuesRepository } from '../../typeorm/repositories/DuesRespository';
 import { SaveDuesService } from '../../../services/SaveDues.service';
 import { RemoveDueService } from '../../../services/RemoveDues.service';
 import { FindAllDuesFromOperationService } from '../../../services/FindAllDuesFromOperation.service';
-import { FindDueByIdService } from 'src/modules/due/services/FindDueById.service';
+import { FindDueByIdService } from '../../../services/FindDueById.service';
 import { FindDueByNrDueService } from '../../../services/FindDueByNrDue.service';
 import { AlterDueService } from '../../../services/AlterDue.service';
 import { DuesXLSXFileService } from '../../../services/DuesXLSXFile.service';
 import { DuesCSVFileService } from '../../../services/DuesCSVFile.service';
+import { CurrencyRepository } from '../../../../currency/infra/typeorm/repositories/CurrencyRepositories';
 
 @Controller('due')
 export class DueController {
   private duesRepository: DuesRepository;
 
+  private currencyRepository: CurrencyRepository;
+
   constructor() {
     this.duesRepository = new DuesRepository();
+    this.currencyRepository = new CurrencyRepository();
   }
 
   @Post('/uploadFile')
@@ -45,7 +49,10 @@ export class DueController {
     @Res() response: Response,
   ): Promise<Response> {
     const duesXLSXFileService = new DuesXLSXFileService(this.duesRepository);
-    const duesCSVFileService = new DuesCSVFileService(this.duesRepository);
+    const duesCSVFileService = new DuesCSVFileService(
+      this.duesRepository,
+      this.currencyRepository,
+    );
 
     let result;
     if (
